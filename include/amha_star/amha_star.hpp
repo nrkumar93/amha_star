@@ -51,8 +51,8 @@ namespace csbpl_planner
     typename State,
     typename HeapValueType>
   class AMHAStar : public Dijkstra<Environment,
-    State,
-    HeapValueType>
+                                   State,
+                                   HeapValueType>
   {
   
   public:
