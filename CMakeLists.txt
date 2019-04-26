@@ -11,4 +11,12 @@ add_library(amha_star INTERFACE)
 target_include_directories(amha_star INTERFACE include/)
 target_link_libraries(amha_star INTERFACE)
 
+# Test for the header-only library. Using the sliding test puzzle
+add_library(sliding_puzzle
+        src/sliding_puzzle.cpp
+        )
+add_executable(sliding_puzzle_test src/sliding_puzzle_test.cpp)
+target_link_libraries(sliding_puzzle_test sliding_puzzle amha_star)
+
+
 
