@@ -56,7 +56,7 @@ int main()
     std::make_shared<sliding_puzzle::SlidingPuzzle>(puzzle_size,
                                                     puzzle_anchor);
 
-  double time_limit = 50;
+  double time_limit = 10;
   double eps = 10;
   double del_eps = 1;
   
