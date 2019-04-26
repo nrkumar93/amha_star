@@ -326,8 +326,8 @@ namespace csbpl_planner
       // Start timer
       this->params_.start_time_ = Clock::now();
       
-      // Suboptimality bound on current solution
-      // @TODO Report the tigher suboptimality as done in the ARA Star paper.
+//      Suboptimality bound on current solution
+//      @TODO Report the tigher suboptimality as done in the ARA Star paper.
 //      for (const auto& incons_node: incons_)
 //      {
 //        double f_incons = this->env_ptr_->explored_[incons_node]->g_cost_ +
@@ -473,9 +473,9 @@ namespace csbpl_planner
     std::vector<csbpl_common::Heap<HeapValueType> > open_inad_;
     
     std::unordered_map<StatePtr,
-      bool,
-      std::hash<StatePtr>,
-      StateCompare> closed_inad_;
+                       bool,
+                       std::hash<StatePtr>,
+                       StateCompare> closed_inad_;
     
     std::vector<StatePtr> incons_;
     std::vector<StatePtr> incons_inad_;
