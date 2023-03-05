@@ -86,7 +86,7 @@ namespace csbpl_planner
 
 #if DEBUG
       int num_expansions = 0;
-    double nearest_node_to_goal_dist = INFINITY;
+    double nearest_node_to_goal_dist = std::numeric_limits<double>::infinity();
     SearchVertexPtr nearest_node_to_goal;
 #endif
       

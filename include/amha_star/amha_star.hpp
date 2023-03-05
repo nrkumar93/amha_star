@@ -91,9 +91,9 @@ namespace csbpl_planner
       if (vertex->heap_index_ != -1)
       {
         this->open_.decreaseKey(vertex,
-                                -INFINITY);
+                                -std::numeric_limits<double>::infinity());
         this->open_.remove();
-        vertex->key_ = INFINITY;
+        vertex->key_ = std::numeric_limits<double>::infinity();
       }
       
       for (int i=0; i<this->params_.num_inad_; ++i)
@@ -101,9 +101,9 @@ namespace csbpl_planner
         if (vertex->mha_copy_[i]->heap_index_ != -1)
         {
           open_inad_[i].decreaseKey(vertex->mha_copy_[i],
-                                    -INFINITY);
+                                    -std::numeric_limits<double>::infinity());
           open_inad_[i].remove();
-          vertex->mha_copy_[i]->key_ = INFINITY;
+          vertex->mha_copy_[i]->key_ = std::numeric_limits<double>::infinity();
         }
       }
       
@@ -145,14 +145,14 @@ namespace csbpl_planner
                                this->params_.eps_*this->env_ptr_->getAdmissibleHeuristicCost(successor->state_);
             if (successor->heap_index_ == -1)
             {
-              successor->key_ = INFINITY;
+              successor->key_ = std::numeric_limits<double>::infinity();
               this->open_.insert(successor);
               this->open_.decreaseKey(successor,
                                       f_cost_ad);
             }
             else
             {
-              successor->key_ = INFINITY;
+              successor->key_ = std::numeric_limits<double>::infinity();
               this->open_.decreaseKey(successor,
                                       f_cost_ad);
             }
@@ -173,14 +173,14 @@ namespace csbpl_planner
                 {
                   if (successor->mha_copy_[i]->heap_index_ == -1)
                   {
-                    successor->mha_copy_[i]->key_ = INFINITY;
+                    successor->mha_copy_[i]->key_ = std::numeric_limits<double>::infinity();
                     open_inad_[i].insert(successor->mha_copy_[i]);
                     open_inad_[i].decreaseKey(successor->mha_copy_[i],
                                               f_cost_inad);
                   }
                   else
                   {
-                    successor->mha_copy_[i]->key_ = INFINITY;
+                    successor->mha_copy_[i]->key_ = std::numeric_limits<double>::infinity();
                     open_inad_[i].decreaseKey(successor->mha_copy_[i],
                                               f_cost_inad);
                   }
@@ -197,13 +197,13 @@ namespace csbpl_planner
     {
 #if DEBUG
       int num_expansions = 0;
-  double nearest_node_to_goal_dist = INFINITY;
+  double nearest_node_to_goal_dist = std::numeric_limits<double>::infinity();
   SearchVertexPtr nearest_node_to_goal;
 #endif
       this->anytime_stats_.num_expansions_.push_back(0);
       std::cout << "[AMHAStar::improvePath] Improve path iteration: "
                 << this->anytime_stats_.num_expansions_.size() << std::endl;
-      while (this->open_.top()->key_ < INFINITY)
+      while (this->open_.top()->key_ < std::numeric_limits<double>::infinity())
       {
         
         double time_elapsed =
