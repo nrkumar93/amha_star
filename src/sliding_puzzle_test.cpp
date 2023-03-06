@@ -50,7 +50,7 @@ int main()
                                   sliding_puzzle::SlidingPuzzleState,
                                   double> AMHAStarType;
 
-  int puzzle_size = 4;
+  int puzzle_size = 5;
   int puzzle_anchor = 0;
   sliding_puzzle::SlidingPuzzle::Ptr env_ptr =
     std::make_shared<sliding_puzzle::SlidingPuzzle>(puzzle_size,

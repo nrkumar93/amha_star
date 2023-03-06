@@ -105,24 +105,9 @@ SlidingPuzzle::SlidingPuzzle(int size, int anchor)
       start_tiles.erase(start_tiles.begin()+index);
     }
   }
-  
-  start_->state_[0][0] = 8;
-  start_->state_[0][1] = 6;
-  start_->state_[0][2] = 4;
-  start_->state_[0][3] = 14;
-  start_->state_[1][0] = 3;
-  start_->state_[1][1] = 11;
-  start_->state_[1][2] = 12;
-  start_->state_[1][3] = 5;
-  start_->state_[2][0] = 2;
-  start_->state_[2][1] = 13;
-  start_->state_[2][2] = 15;
-  start_->state_[2][3] = 9;
-  start_->state_[3][0] = 7;
-  start_->state_[3][1] = 10;
-  start_->state_[3][2] = 1;
-  start_->state_[3][3] = 0;
-  
+
+  generateSolvableStartState(750);
+
   std::cout << "The random start state is: " << std::endl;
   std::cout << *start_ << std::endl;
 
